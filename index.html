@@ -681,7 +681,7 @@ async function del(col,id){ if(ro||!db) return; try{ await db.collection(col).do
 /* ───────── 저장소: 이 브라우저 + 구글 Apps Script(스프레드시트) ─────────
    MARFLOW와 같은 방식입니다. 웹앱 URL로 JSON을 POST하고 {ok:true, …}를 받습니다.
    URL이 없으면 이 브라우저(localStorage)에만 저장하고, 연결하면 시트가 원본이 됩니다. */
-const HR_DEFAULT_GAS = '';   // 배포한 Apps Script 웹앱 URL(…/exec)을 여기에 넣어 두면, 링크를 연 모든 사람이 같은 시트를 봅니다
+const HR_DEFAULT_GAS = 'https://script.google.com/macros/s/AKfycbyhDFTScw_9KfjSaDhp8PS2xqMSVU7pRrdNQn7by5mG0AaIY4HIgeIqThsf1sk0QSd82g/exec';   // 배포한 Apps Script 웹앱 URL(…/exec)을 여기에 넣어 두면, 링크를 연 모든 사람이 같은 시트를 봅니다
 const LS_DATA='marple_hr_data_v1', LS_SET='marple_hr_settings_v1';
 const CFG=(()=>{ try{ return JSON.parse(localStorage.getItem(LS_SET)||'{}')||{}; }catch(_){ return {}; } })();
 const gasUrl=()=>String(CFG.gasUrl||HR_DEFAULT_GAS||'').trim();
